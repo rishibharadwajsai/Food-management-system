@@ -1,0 +1,40 @@
+# Node.js dependencies
+/node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Directory for coverage reports
+coverage/
+
+# Build output
+/dist/
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS Finder metadata
+.DS_Store
+
+# Linux trash
+.Trash-*
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
+# Miscellaneous
+*.pem
+*.key
+
