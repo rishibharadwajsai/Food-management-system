@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors'); // Import the cors module
+const cors = require('cors');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 
@@ -8,12 +8,12 @@ connectDB();
 
 const app = express();
 
-// Use the CORS middleware
 app.use(cors());
 
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/bookings', require('./routes/bookings'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

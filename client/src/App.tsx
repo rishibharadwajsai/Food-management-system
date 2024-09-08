@@ -1,11 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Login from "./pages/Login"; // Ensure correct path
-import SignUp from "./pages/SignUp"; // Ensure correct path
-import Dashboard from "./pages/Dashboard"; // Import Dashboard component
+import Login from "./pages/Login"; 
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard"; 
 
 const App: React.FC = () => {
-  // Custom hook to get the current location
   const location = useLocation();
   const isDashboard = location.pathname === "/dashboard";
 
@@ -23,13 +22,11 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* Add other routes as needed */}
       </Routes>
     </div>
   );
 };
 
-// Wrap the App component with Router
 const AppWrapper: React.FC = () => (
   <Router>
     <App />

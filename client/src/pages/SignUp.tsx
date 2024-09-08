@@ -9,7 +9,7 @@ const SignUp = () => {
     password: "",
   });
 
-  const [message, setMessage] = useState(""); // State for success or error messages
+  const [message, setMessage] = useState("");
 
   const { name, email, phone, password } = formData;
 
@@ -23,17 +23,14 @@ const SignUp = () => {
         "http://localhost:5000/api/auth/signup",
         formData
       );
-      setMessage(res.data.msg); // Set the success message
-      console.log(res.data); // Handle success, like redirecting or saving token
+      setMessage(res.data.msg);
+      console.log(res.data);
     } catch (err: any) {
       if (err.response) {
-        // Server error
-        setMessage(err.response.data.msg || "An error occurred"); // Display error message
+        setMessage(err.response.data.msg || "An error occurred");
       } else if (err.request) {
-        // Network error
         setMessage("Network error: Unable to connect");
       } else {
-        // Other errors
         setMessage("Error: " + err.message);
       }
     }
@@ -74,7 +71,7 @@ const SignUp = () => {
         required
       />
       <button type="submit">Sign Up</button>
-      {message && <p>{message}</p>} {/* Display message */}
+      {message && <p>{message}</p>}
     </form>
   );
 };

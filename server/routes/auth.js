@@ -45,7 +45,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Add this to your existing routes in auth.js
 
 // Route to get user data
 router.get('/user', async (req, res) => {
