@@ -17,12 +17,13 @@ router.post('/signup', async (req, res) => {
         const payload = { userId: user._id };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.json({ token });
+        res.json({ msg: 'Account created successfully', token });
     } catch (err) {
         console.error('Error:', err);
         res.status(500).json({ msg: 'Server error' });
     }
 });
+
 
 // Login Route
 router.post('/login', async (req, res) => {
@@ -37,7 +38,26 @@ router.post('/login', async (req, res) => {
         const payload = { userId: user._id };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        res.json({ token });
+        res.json({ msg: 'Login successful', token });
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ msg: 'Server error' });
+    }
+});
+
+// Add this to your existing routes in auth.js
+
+// Route to get user data
+router.get('/user', async (req, res) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).json({ msg: 'Unauthorized' });
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await User.findById(decoded.userId).select('-password');
+        if (!user) return res.status(404).json({ msg: 'User not found' });
+
+        res.json(user);
     } catch (err) {
         console.error('Error:', err);
         res.status(500).json({ msg: 'Server error' });

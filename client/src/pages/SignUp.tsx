@@ -9,6 +9,8 @@ const SignUp = () => {
     password: "",
   });
 
+  const [message, setMessage] = useState(""); // State for success or error messages
+
   const { name, email, phone, password } = formData;
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -20,18 +22,19 @@ const SignUp = () => {
       const res = await axios.post(
         "http://localhost:5000/api/auth/signup",
         formData
-      ); // Update the URL here
+      );
+      setMessage(res.data.msg); // Set the success message
       console.log(res.data); // Handle success, like redirecting or saving token
     } catch (err: any) {
       if (err.response) {
         // Server error
-        console.error(err.response.data);
+        setMessage(err.response.data.msg || "An error occurred"); // Display error message
       } else if (err.request) {
-        // Network error (request was made but no response)
-        console.error("Network error: ", err.request);
+        // Network error
+        setMessage("Network error: Unable to connect");
       } else {
-        // Other errors (something else happened during request setup)
-        console.error("Error: ", err.message);
+        // Other errors
+        setMessage("Error: " + err.message);
       }
     }
   };
@@ -71,6 +74,7 @@ const SignUp = () => {
         required
       />
       <button type="submit">Sign Up</button>
+      {message && <p>{message}</p>} {/* Display message */}
     </form>
   );
 };
