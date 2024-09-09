@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div className="relative h-screen md:h-auto overflow-y-auto flex flex-col md:flex-row md:h-[45rem]">
+    <div className="relative h-screen overflow-y-auto flex flex-col md:flex-row md:h-[45rem]">
       {/* Left side  */}
       <div className="flex-1 bg-gray-900 text-white flex items-center justify-center px-8 py-20 relative">
         {/* Left-side Content */}
