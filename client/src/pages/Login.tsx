@@ -39,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="my-10 p-10 flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md">
       <input
         type="email"
         name="email"
@@ -47,6 +47,7 @@ const Login = () => {
         onChange={onChange}
         placeholder="Email"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
       <input
         type="password"
@@ -55,8 +56,9 @@ const Login = () => {
         onChange={onChange}
         placeholder="Password"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
-      <button type="submit">Login</button>
+      <button type="submit" className="bg-blue-500 text-white mt-2 p-2 rounded-lg w-20 font-semibold">Login</button>
       {message && <p>{message}</p>}
     </form>
   );

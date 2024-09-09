@@ -37,7 +37,7 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="my-10 p-10 flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md">
       <input
         type="text"
         name="name"
@@ -45,6 +45,7 @@ const SignUp = () => {
         onChange={onChange}
         placeholder="Name"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
       <input
         type="email"
@@ -53,6 +54,7 @@ const SignUp = () => {
         onChange={onChange}
         placeholder="Email"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
       <input
         type="text"
@@ -61,6 +63,7 @@ const SignUp = () => {
         onChange={onChange}
         placeholder="Phone"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
       <input
         type="password"
@@ -69,8 +72,9 @@ const SignUp = () => {
         onChange={onChange}
         placeholder="Password"
         required
+        className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
-      <button type="submit">Sign Up</button>
+      <button type="submit" className="bg-green-500 text-white mt-2 p-2 rounded-lg w-20 font-semibold">Sign Up</button>
       {message && <p>{message}</p>}
     </form>
   );
