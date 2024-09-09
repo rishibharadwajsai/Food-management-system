@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div className="relative h-screen md:h-auto overflow-y-auto flex flex-col md:flex-row">
-      {/* Left side - Professional muted color */}
+    <div className="relative h-screen md:h-auto overflow-y-auto flex flex-col md:flex-row md:h-[45rem]">
+      {/* Left side  */}
       <div className="flex-1 bg-gray-900 text-white flex items-center justify-center px-8 py-20 relative">
         {/* Left-side Content */}
         <div className="space-y-10 max-w-md">
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
           <p className="text-lg lg:text-xl leading-relaxed text-gray-300 font-light">
             Experience seamless meal planning and food orders. Let us handle the details while you focus on enjoying your day.
           </p>
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <h2 className="text-3xl font-semibold border-b-2 border-[#FFD700] inline-block pb-1">
               Why MealEase?
             </h2>
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
               <li>Track your orders and meal plans with ease.</li>
               <li>User-friendly navigation for a smooth experience.</li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Decorative elements */}
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <div className="absolute bottom-10 left-0 w-24 h-24 bg-[#FF6347] rounded-full opacity-20 filter blur-lg"></div>
       </div>
 
-      {/* Right side - Image with subtle overlay */}
+      {/* Right side */}
       <div className="flex-1 bg-gray-50 flex items-center justify-center px-8 py-20 relative">
         {/* Right-side Content */}
         <div className="relative w-full h-full">
