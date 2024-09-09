@@ -20,11 +20,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        `${import.meta.env.VITE_API_URL}/auth/login`,
         formData
       );
       setMessage(res.data.msg);
-      // console.log(res.data);
       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
     } catch (err: any) {
@@ -50,7 +49,7 @@ const Login = () => {
         onChange={onChange}
         placeholder="Email"
         required
-        className=" border-2 border-black rounded-md text-black font-normal"
+        className="border-2 border-black rounded-md text-black font-normal"
       />
       <input
         type="password"
@@ -59,7 +58,7 @@ const Login = () => {
         onChange={onChange}
         placeholder="Password"
         required
-        className=" border-2 border-black rounded-md text-black font-normal"
+        className="border-2 border-black rounded-md text-black font-normal"
       />
       <button
         type="submit"
