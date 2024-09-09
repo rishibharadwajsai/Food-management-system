@@ -39,7 +39,7 @@ const SignUp = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="my-10 p-10 flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md"
+      className="flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md"
     >
       <input
         type="text"
