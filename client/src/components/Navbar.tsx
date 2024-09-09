@@ -4,17 +4,23 @@ import React, { useState, useEffect, useRef } from 'react';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null); 
 
   // Toggle the menu open/close
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev); // Toggle the state, which will open/close the menu
+    setIsOpen((prev) => !prev); 
   };
 
   // Close the navbar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setIsOpen(false); // Close the menu if clicked outside
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false); 
       }
     };
 
@@ -37,8 +43,9 @@ const Navbar: React.FC = () => {
           {/* Hamburger Icon for Mobile */}
           <div className="md:hidden">
             <button
-              onClick={toggleMenu} // Also closes the menu if already open
+              onClick={toggleMenu}
               className="text-white focus:outline-none"
+              ref={buttonRef}
             >
               <svg
                 className="w-6 h-6"
@@ -57,7 +64,7 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Menu items for larger screens */}
+         
           <div className="hidden md:flex md:items-center md:w-auto">
             <ul className="md:flex md:space-x-4 md:mt-0 mt-4 text-white">
               <li>
@@ -80,12 +87,18 @@ const Navbar: React.FC = () => {
                   Contact
                 </a>
               </li>
+            
+              <li>
+                <a href="/signup" className="block py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded">
+                  Signup
+                </a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu (slide-in/out) */}
+      {/* Mobile menu */}
       <div
         ref={navRef}
         className={`${
@@ -111,6 +124,12 @@ const Navbar: React.FC = () => {
           <li>
             <a href="#" className="block py-2 px-4 hover:bg-gray-700 rounded">
               Contact
+            </a>
+          </li>
+          {/* Signup Button for Mobile */}
+          <li>
+            <a href="/signup" className="block py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded">
+              Signup
             </a>
           </li>
         </ul>
