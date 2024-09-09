@@ -23,7 +23,7 @@ const OrderHistoryComponent: React.FC = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:5000/api/bookings", {
+        const response = await axios.get("https://food-management-system-isyq.onrender.com/api/bookings", { // Updated URL
           headers: { Authorization: `Bearer ${token}` },
         });
 
