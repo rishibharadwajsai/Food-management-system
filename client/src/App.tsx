@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 
 const App: React.FC = () => {
   const location = useLocation();
-  const isDashboard = location.pathname === "/dashboard";
+  const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
     <div>
@@ -29,7 +29,8 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </div>
   );

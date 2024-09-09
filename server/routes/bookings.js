@@ -59,4 +59,16 @@ router.post('/', async (req, res) => {
     }
 });
 
+// Fetch all bookings for the authenticated user
+router.get('/', async (req, res) => {
+    try {
+        const { userId } = req.user;
+        const bookings = await Booking.find({ userId }).sort({ date: -1 }); // Sorting by date, newest first
+        res.json(bookings);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).json({ msg: 'Server error' });
+    }
+});
+
 module.exports = router;

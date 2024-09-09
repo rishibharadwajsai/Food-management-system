@@ -24,7 +24,7 @@ const SignUp = () => {
         formData
       );
       setMessage(res.data.msg);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (err: any) {
       if (err.response) {
         setMessage(err.response.data.msg || "An error occurred");
@@ -37,7 +37,10 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="my-10 p-10 flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md">
+    <form
+      onSubmit={onSubmit}
+      className="my-10 p-10 flex flex-col justify-center align-middle items-center max-w-screen-lg mx-auto shadow-md"
+    >
       <input
         type="text"
         name="name"
@@ -74,7 +77,12 @@ const SignUp = () => {
         required
         className="my-2 border-2 border-black rounded-md px-2 text-black font-normal"
       />
-      <button type="submit" className="bg-green-500 text-white mt-2 p-2 rounded-lg w-20 font-semibold">Sign Up</button>
+      <button
+        type="submit"
+        className="bg-green-500 text-white mt-2 p-2 rounded-lg w-20 font-semibold"
+      >
+        Sign Up
+      </button>
       {message && <p>{message}</p>}
     </form>
   );
