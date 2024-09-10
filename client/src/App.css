@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body{
+    font-family: "Roboto", sans-serif;
+}
+
+.home-bg{
+    background: url("https://static.toiimg.com/thumb/msid-101282760,width-1280,height-720,resizemode-4/101282760.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.home-content-bg{
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.854);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(30, 30, 30, 0.384);
+backdrop-filter: blur(0.5px);
+-webkit-backdrop-filter: blur(0.5px);
+border: 3px solid rgba(255, 255, 255, 1);
+}
