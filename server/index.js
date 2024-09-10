@@ -8,9 +8,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-    origin: 'http://localhost:5173'  // Replace with the URL of your frontend
-}));
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
