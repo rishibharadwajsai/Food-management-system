@@ -20,7 +20,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://food-management-system-isyq.onrender.com/api/auth/signup", // Updated URL
+        "http://localhost:5000/api/auth/signup",
         formData
       );
       setMessage(res.data.msg);
