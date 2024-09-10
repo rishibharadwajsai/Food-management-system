@@ -23,9 +23,10 @@ const OrderHistoryComponent: React.FC = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:5000/api/bookings", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          "https://food-management-system-backend-url.onrender.com/api/bookings", // Updated URL
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
 
         setOrders(response.data);
       } catch (err) {
