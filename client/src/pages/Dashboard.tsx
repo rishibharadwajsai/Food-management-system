@@ -51,9 +51,9 @@ const Dashboard: React.FC = () => {
     setCurrentComponent("order-history");
   };
 
-  const handleBackToDashboard = () => {
-    setCurrentComponent("none");
-  };
+  // const handleBackToDashboard = () => {
+  //   setCurrentComponent("none");
+  // };
 
   if (loading) {
     return <p>Loading...</p>;
