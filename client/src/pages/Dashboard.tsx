@@ -22,9 +22,10 @@ const Dashboard: React.FC = () => {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/api/auth/user", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://food-management-system-backend-url.onrender.com/api/auth/user", // Updated URL
+          { headers: { Authorization: `Bearer ${token}` } }
+        );
 
         setUser(res.data);
       } catch (err) {
@@ -50,10 +51,6 @@ const Dashboard: React.FC = () => {
   const handleOrderHistoryClick = () => {
     setCurrentComponent("order-history");
   };
-
-  // const handleBackToDashboard = () => {
-  //   setCurrentComponent("none");
-  // };
 
   if (loading) {
     return <p>Loading...</p>;

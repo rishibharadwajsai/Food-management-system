@@ -32,7 +32,7 @@ const BookingComponent: React.FC = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/bookings",
+        "https://food-management-system-backend-url.onrender.com/api/bookings", // Updated URL
         { mealType, meal: selectedMeal, date },
         { headers: { Authorization: `Bearer ${token}` } }
       );

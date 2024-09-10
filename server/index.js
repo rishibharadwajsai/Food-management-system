@@ -8,7 +8,9 @@ connectDB();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://food-management-system-o63x.onrender.com' // Replace with your frontend URL
+}));
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));

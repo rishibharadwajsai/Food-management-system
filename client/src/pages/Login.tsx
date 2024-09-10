@@ -20,11 +20,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://food-management-system-backend-url.onrender.com/api/auth/login", // Updated URL
         formData
       );
       setMessage(res.data.msg);
-      // console.log(res.data);
       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
     } catch (err: any) {
