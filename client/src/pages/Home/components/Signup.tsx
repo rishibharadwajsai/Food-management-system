@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Signup: React.FC = () => {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
