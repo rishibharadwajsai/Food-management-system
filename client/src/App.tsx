@@ -5,10 +5,9 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-// import Login from "./pages/Login";
-// import SignUp from "./pages/SignUp";
-import Login from "./pages/Home/components/Login";
-import Signup from "./pages/Home/components/Signup";
+
+// import Login from "./pages/Home/components/Login";
+// import Signup from "./pages/Home/components/Signup";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home/Home";
 
