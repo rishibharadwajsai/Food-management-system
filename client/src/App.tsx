@@ -8,8 +8,8 @@ import {
 
 // import Login from "./pages/Home/components/Login";
 // import Signup from "./pages/Home/components/Signup";
-import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
+import Dashboard from "./pages/Dashboard/Dashboard2";
 
 const App: React.FC = () => {
   const location = useLocation();
