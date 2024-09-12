@@ -9,7 +9,7 @@ import {
 // import Login from "./pages/Home/components/Login";
 // import Signup from "./pages/Home/components/Signup";
 import Home from "./pages/Home/Home";
-import Dashboard from "./pages/Dashboard/Dashboard2";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const App: React.FC = () => {
   const location = useLocation();
