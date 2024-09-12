@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: 'https://food-management-system-o63x.onrender.com' // Replace with your frontend URL
+    origin: '*' // Replace with your frontend URL
 }));
 app.use(express.json());
 
