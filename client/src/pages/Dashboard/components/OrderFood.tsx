@@ -23,6 +23,17 @@ const OrderFood: React.FC = () => {
   const [showBooking, setShowBooking] = useState<boolean>(false);
   const [selectedMeal, setSelectedMeal] = useState<Meal | null>(null);
 
+  // Fetch meal details by ID
+  const fetchMealDetails = async (mealId: string) => {
+    try {
+      const res = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
+      return res.data.meals[0];
+    } catch (err) {
+      console.error("Error fetching meal details:", err);
+    }
+  };
+
+  // Fetch meals based on search term, category, or area
   const fetchMeals = async () => {
     let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`;
     if (selectedCategory) {
@@ -33,12 +44,23 @@ const OrderFood: React.FC = () => {
 
     try {
       const res = await axios.get(url);
-      setMeals(res.data.meals || []);
+      const mealList = res.data.meals || [];
+
+      if (selectedCategory || selectedArea) {
+        // Fetch detailed meal info for each meal in the list
+        const detailedMeals = await Promise.all(
+          mealList.map((meal: any) => fetchMealDetails(meal.idMeal))
+        );
+        setMeals(detailedMeals.filter((meal) => meal !== undefined));
+      } else {
+        setMeals(mealList);
+      }
     } catch (err) {
       console.error("Error fetching meals:", err);
     }
   };
 
+  // Fetch meal categories
   const fetchCategories = async () => {
     try {
       const res = await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
@@ -48,6 +70,7 @@ const OrderFood: React.FC = () => {
     }
   };
 
+  // Fetch meal areas
   const fetchAreas = async () => {
     try {
       const res = await axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
@@ -57,21 +80,29 @@ const OrderFood: React.FC = () => {
     }
   };
 
+  // Initial data fetch
   useEffect(() => {
-    fetchMeals();
     fetchCategories();
     fetchAreas();
-  }, [selectedCategory, selectedArea]);
+  }, []);
 
+  // Fetch meals when filters or search term change
+  useEffect(() => {
+    fetchMeals();
+  }, [selectedCategory, selectedArea, searchTerm]);
+
+  // Handle search input change
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
+  // Handle order button click
   const handleOrder = (meal: Meal) => {
     setSelectedMeal(meal);
     setShowBooking(true);
   };
 
+  // Determine if a meal is vegetarian
   const isVegetarian = (meal: Meal) => {
     const nonVegetarianKeywords = ["chicken", "beef", "pork", "lamb", "fish", "bacon"];
     const ingredients = meal.strInstructions.toLowerCase();
@@ -144,7 +175,7 @@ const OrderFood: React.FC = () => {
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 relative"
             >
               <img
-                src={`${meal.strMealThumb}/preview`}
+                src={meal.strMealThumb}
                 alt={meal.strMeal}
                 className="w-full h-56 object-cover sm:h-64 md:h-72 lg:h-80"
               />
