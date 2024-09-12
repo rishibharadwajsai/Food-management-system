@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
   // Handle Logout
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   // Toggle dropdown menu
@@ -64,10 +64,10 @@ const Navbar: React.FC = () => {
   // Handle mobile screen resize
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust the breakpoint as needed
+      setIsMobile(window.innerWidth < 768); 
     };
 
-    handleResize(); // Check on initial load
+    handleResize(); 
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
