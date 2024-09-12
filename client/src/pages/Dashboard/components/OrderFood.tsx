@@ -79,38 +79,38 @@ const OrderFood: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-gray-50 min-h-screen relative px-48">
+    <div className="container mx-auto p-6 bg-gray-50 min-h-screen relative px-4 md:px-6 lg:px-40">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="bg-gradient-to-b from-gray-100 via-orange-100 to-yellow-100 h-full w-full" />
-        <div className="absolute top-10 left-10 bg-orange-300 rounded-full h-24 w-24"></div>
-        <div className="absolute bottom-20 right-20 bg-purple-200 rounded-full h-32 w-32"></div>
-        <div className="absolute top-80 right-10 bg-orange-300 rounded-full h-24 w-24"></div>
+        <div className="absolute top-10 left-10 bg-orange-300 rounded-full h-24 w-24 md:h-32 md:w-32 lg:h-40 lg:w-40"></div>
+        <div className="absolute bottom-20 right-20 bg-purple-200 rounded-full h-32 w-32 md:h-40 md:w-40 lg:h-48 lg:w-48"></div>
+        <div className="absolute top-80 right-10 bg-orange-300 rounded-full h-24 w-24 md:h-32 md:w-32 lg:h-40 lg:w-40"></div>
       </div>
 
       {/* Search Bar */}
-      <div className="relative z-10 mb-8 flex justify-between items-center">
+      <div className="relative z-10 mb-8 flex flex-col sm:flex-row sm:justify-center items-center">
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search for meals..."
-          className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full sm:w-2/3 p-3 border border-gray-300 rounded-lg sm:rounded-l-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
           onClick={fetchMeals}
-          className="ml-4 bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition"
+          className="mt-4 sm:mt-0 sm:ml-0 bg-gray-700 text-white px-6 py-3 sm:rounded-r-lg rounded-lg hover:bg-gray-800 transition"
         >
           Search
         </button>
       </div>
 
       {/* Filter Options */}
-      <div className="relative z-10 mb-6 flex space-x-4">
+      <div className="relative z-10 mb-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
         {/* Category Filter */}
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-3 hover:cursor-pointer border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           <option value="">All Categories</option>
           {categories.map((category) => (
@@ -124,7 +124,7 @@ const OrderFood: React.FC = () => {
         <select
           value={selectedArea}
           onChange={(e) => setSelectedArea(e.target.value)}
-          className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:cursor-pointer"
         >
           <option value="">All Areas</option>
           {areas.map((area) => (
@@ -136,7 +136,7 @@ const OrderFood: React.FC = () => {
       </div>
 
       {/* Meals Grid */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {meals.length > 0 ? (
           meals.map((meal) => (
             <div
@@ -146,7 +146,7 @@ const OrderFood: React.FC = () => {
               <img
                 src={`${meal.strMealThumb}/preview`}
                 alt={meal.strMeal}
-                className="w-full h-56 object-cover"
+                className="w-full h-56 object-cover sm:h-64 md:h-72 lg:h-80"
               />
               <div className="p-6">
                 <div className="flex justify-between items-center mb-3">
@@ -176,7 +176,7 @@ const OrderFood: React.FC = () => {
 
       {/* Booking Popup Modal */}
       {showBooking && selectedMeal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-2 sm:p-0">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full relative">
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-gray-800"
