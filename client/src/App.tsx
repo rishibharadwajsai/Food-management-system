@@ -5,8 +5,10 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+// import Login from "./pages/Login";
+// import SignUp from "./pages/SignUp";
+import Login from "./pages/Home/components/Login";
+import Signup from "./pages/Home/components/Signup";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home/Home";
 
@@ -20,8 +22,8 @@ const App: React.FC = () => {
         {!isDashboard && (
           <>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
+            {/* <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} /> */}
           </>
         )}
         {isDashboard && <Route path="/dashboard/*" element={<Dashboard />} />}
