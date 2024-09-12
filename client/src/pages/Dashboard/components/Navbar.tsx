@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Navbar: React.FC = () => {
   const [user, setUser] = useState<{ name: string } | null>(null);
-  const [loading, setLoading] = useState(true);
+//   const [loading, setLoading] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
         console.error("Error fetching user data:", err);
         navigate("/login");
       } finally {
-        setLoading(false);
+        console.log("Successful")
       }
     };
 
