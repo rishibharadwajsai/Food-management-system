@@ -8,7 +8,7 @@ import {
 
 // import Login from "./pages/Home/components/Login";
 // import Signup from "./pages/Home/components/Signup";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 
 const App: React.FC = () => {
