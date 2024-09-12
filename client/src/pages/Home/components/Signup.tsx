@@ -34,7 +34,7 @@ const Signup: React.FC = () => {
     
       sessionStorage.setItem('user', JSON.stringify(userData));
       
-      navigate('/dashboard');
+    //   navigate('/dashboard');
       
     } catch (err: any) {
       if (err.response) {
