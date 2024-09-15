@@ -9,7 +9,9 @@ import {
 // import Login from "./pages/Home/components/Login";
 // import Signup from "./pages/Home/components/Signup";
 import Home from "./pages/Home/Home";
-import Dashboard from "./pages/Dashboard/Dashboard";
+// import Dashboard from "./pages/Dashboard/Dashboard";
+import DashHome from "./pages/Dashboard/DashHome";
+import OrderHistoryComponent from "./pages/Dashboard/components/OrderHistoryComponent";
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -25,7 +27,13 @@ const App: React.FC = () => {
             <Route path="/signup" element={<Signup />} /> */}
           </>
         )}
-        {isDashboard && <Route path="/dashboard/*" element={<Dashboard />} />}
+        {isDashboard && (
+          <>
+          <Route path="/dashboard/home" element={<DashHome />}/>
+          <Route path="/dashboard/orders" element={<OrderHistoryComponent />} />
+          </> 
+        )}
+        
       </Routes>
     </>
   );

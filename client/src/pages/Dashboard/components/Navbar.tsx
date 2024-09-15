@@ -49,17 +49,25 @@ const Navbar: React.FC = () => {
   };
 
   // Handle scroll to section
+  // const scrollToOrders = () => {
+  //   const ordersSection = document.getElementById("orders");
+  //   if (ordersSection) {
+  //     ordersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //     if (isMobile) {
+  //       setDropdownOpen(false);
+  //     }
+  //   } else {
+  //     console.warn("Orders section not found.");
+  //   }
+  // };
+
   const scrollToOrders = () => {
-    const ordersSection = document.getElementById("orders");
-    if (ordersSection) {
-      ordersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (isMobile) {
-        setDropdownOpen(false);
-      }
-    } else {
-      console.warn("Orders section not found.");
-    }
-  };
+    navigate('/dashboard/orders')
+  }
+
+  const scrollToOrders2 = () => {
+    navigate('/dashboard/home')
+  }
 
   // Handle mobile screen resize
   useEffect(() => {
@@ -85,6 +93,12 @@ const Navbar: React.FC = () => {
         {/* Desktop View - My Orders Link */}
         {!isMobile && user && (
           <>
+          <button
+              onClick={scrollToOrders2}
+              className="mr-8 font-semibold text-gray-500 hover:text-black p-2 hover:bg-gray-200 rounded-lg px-4"
+            >
+             Home
+            </button>
             <button
               onClick={scrollToOrders}
               className="mr-8 font-semibold text-gray-500 hover:text-black p-2 hover:bg-gray-200 rounded-lg px-4"
@@ -114,12 +128,20 @@ const Navbar: React.FC = () => {
         {dropdownOpen && (
           <div className={`absolute right-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20`}>
             {isMobile && (
+              <>
+              <button
+              onClick={scrollToOrders2}
+              className="mr-8 font-semibold text-gray-500 hover:text-black p-2 hover:bg-gray-200 rounded-lg px-4"
+            >
+             Home
+            </button>
               <button
                 onClick={scrollToOrders}
                 className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
               >
                 My Orders
               </button>
+              </>
             )}
             <button
               onClick={handleLogout}

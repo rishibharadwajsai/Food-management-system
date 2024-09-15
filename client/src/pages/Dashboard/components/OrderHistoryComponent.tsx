@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaCalendarDay, FaTag, FaClock } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 interface Order {
   _id: string;
@@ -46,6 +47,9 @@ const OrderHistoryComponent: React.FC = () => {
   }
 
   return (
+    <>
+    <Navbar />
+    
     <div className="container mx-auto p-6 bg-gradient-to-b from-yellow-50 via-orange-100 to-gray-100 min-h-screen pt-20" id="orders">
       <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Order History</h2>
       {orders.length > 0 ? (
@@ -95,6 +99,7 @@ const OrderHistoryComponent: React.FC = () => {
         <p className="text-center text-gray-600">No orders found</p>
       )}
     </div>
+    </>
   );
 };
 
