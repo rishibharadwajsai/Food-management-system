@@ -25,7 +25,7 @@ const Signup: React.FC = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://food-management-system-backend-url.onrender.com/api/auth/signup",
+        "https://foodbookingapp-backend-uri.vercel.app/api/auth/signup",
         formData
       );
       setMessage(res.data.msg);

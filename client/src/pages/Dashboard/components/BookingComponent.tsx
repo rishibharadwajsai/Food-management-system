@@ -24,7 +24,7 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ selectedMeal }) => 
       }
 
       const response = await axios.post(
-        "https://food-management-system-backend-url.onrender.com/api/bookings",
+        "https://foodbookingapp-backend-uri.vercel.app/api/bookings",
         { mealType, meal: selectedMeal, date, quantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
