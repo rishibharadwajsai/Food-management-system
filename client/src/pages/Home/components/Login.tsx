@@ -31,7 +31,7 @@ const Login: React.FC = () => {
       );
       setMessage(res.data.msg); 
       localStorage.setItem('token', res.data.token); 
-      navigate('/dashboard'); 
+      navigate('/dashboard/home'); 
     } catch (err: any) {
       
       if (err.response) {
