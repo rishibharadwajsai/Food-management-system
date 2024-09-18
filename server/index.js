@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: ['*', 'https://foodbookingapp.pages.dev'] // Replace with your frontend URL
+    origin: ['http://localhost:5173', 'https://foodbookingapp.pages.dev'] // Replace with your frontend URL
 }));
 app.use(express.json());
 
