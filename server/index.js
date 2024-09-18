@@ -13,6 +13,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods if needed
     credentials: true, // If you're using cookies, ensure credentials are allowed
 }));
+app.options('*', cors());
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
